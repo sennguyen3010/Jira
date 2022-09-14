@@ -1,0 +1,188 @@
+@import '../../assets/sass/Helpers/variables';
+@import '../../assets/sass/Helpers/mixin';
+
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sider {
+  // width: 500px;
+  background-color: #e9d6d8;
+  display: flex;
+  // align-items: center;
+  // justify-content: space-evenly;
+  flex-direction: column;
+  overflow: hidden;
+  // padding: 80px 0 0 50px;
+  .img {
+    width: 100%;
+    margin-top: 140px;
+    transform: scale(1.2);
+    // height: 80vh;
+    // object-fit: cover;
+    // padding: 0 30px;
+    // margin-top: 100px;
+    // box-shadow: 0px 0px 26px 21px #e7bce7;
+  }
+  .logo {
+    cursor: pointer;
+    text-decoration: none;
+    padding: 40px;
+    .logo_img {
+      width: 50px;
+    }
+    .brand {
+      font-family: 'Aclonica', sans-serif;
+      @include text($text-26, $text-semibold, $text-c5-secondary);
+    }
+  }
+  .slogan {
+    // font-family: Arial, Helvetica, sans-serif;
+    padding-left: 40px;
+
+    @include text($text-32, $text-semibold, $text-c4-secondary);
+  }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content_layout {
+    width: 40%;
+  }
+}
+
+.title {
+  margin-bottom: 26px;
+  @include text($text-26, $text-semibold, $text-c1-primary);
+}
+
+.login_gg {
+  background-color: #1a73e8;
+  border: 2px solid #1a73e8;
+  border-radius: 5px;
+  align-items: center;
+  width: 250px;
+  cursor: pointer;
+  display: flex;
+  transition: all ease 0.218s;
+
+  &:hover {
+    background-color: #5a95ee;
+    border-color: #5a95ee;
+  }
+
+  .bg_icon {
+    background-color: #fff;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 12px;
+    border-radius: 3px 0 0 3px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    // padding: 10px;
+  }
+
+  .login_gg_content {
+    color: #fff;
+    padding: 0 10px;
+    font-size: 14px;
+    margin-bottom: 0px;
+  }
+}
+
+.login_fb {
+  background-color: #1a73e8;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+  border-radius: 5px;
+  border: none;
+  transition: all ease 0.218s;
+
+  &:hover {
+    background-color: #5a95ee;
+    // border-color: #5a95ee;
+  }
+}
+
+.hr {
+  margin: 40px 0 10px 0;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  color: #6e6d7a;
+  text-align: center;
+  &::after {
+    content: 'Or';
+    display: inline-block;
+    position: relative;
+    top: -12px;
+    padding: 0 16px;
+    background: #fff;
+  }
+}
+
+.label {
+  @include text($text-16, $text-semibold, $text-c1-primary);
+}
+.input {
+  border: 1px solid transparent;
+  background-color: $bg-c3-primary;
+  height: 40px;
+  padding: 10px 16px;
+  transition: all ease 200ms;
+  border-radius: 8px;
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: $bg-c1-primary;
+    box-shadow: 0 0 0 4px $bg-c5-secondary;
+  }
+  &:focus {
+    border-color: rgba(0, 0, 0, 0.1);
+    background-color: $bg-c1-primary;
+    box-shadow: 0 0 0 4px $bg-c5-secondary;
+    border-color: $bg-c6-secondary;
+  }
+}
+
+.button_submit {
+  background-color: $bg-c1-secondary;
+  height: 40px;
+  @include text($text-14, $text-medium, $text-c1-secondary);
+  width: 200px;
+  transition: all ease 200ms;
+  border: none;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $bg-c7-secondary;
+    color: $text-c1-secondary;
+  }
+  &:active {
+    background-color: $bg-c8-secondary;
+  }
+}
+
+.register {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+
+  .sign_up {
+    margin-left: 10px;
+    text-decoration: none;
+  }
+}

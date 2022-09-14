@@ -1,0 +1,70 @@
+@import '../../assets/sass/Helpers/mixin';
+@import '../../assets/sass/Helpers/variables';
+
+.list_wrap {
+  // width: 300px;
+  width: 20%;
+  padding: 0 5px;
+}
+.listCard {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  // background-color: #f4f5f7;
+  // background-color: #fff;
+  border-radius: 8px;
+  // padding: 10px;
+
+  &_item {
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+
+    margin: 0 4px;
+    // min-height: 0;
+    // overflow-x: hidden;
+
+    z-index: 1;
+
+    &_img {
+      border-radius: 8px 8px 0 0;
+    }
+  }
+
+  .listCard_title {
+    @include text($text-16, $text-medium, #0d6efd);
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    flex: 0 1 auto;
+  }
+
+  .listCard_btn {
+    flex: 0 1 40px;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #e1e1e1;
+    border-color: transparent;
+    transition: all ease 200ms;
+
+    &:hover {
+      background-color: #b4b4b4;
+      color: black;
+      // border: 1px solid transparent;
+      // background-color: #d4d4d4;
+    }
+    &:focus {
+      background-color: #b4b4b4;
+      color: black;
+      // border: 1px solid transparent;
+      // background-color: #d4d4d4;
+    }
+  }
+}
+.test {
+  // overflow-x: hidden;
+  // overflow-y: auto;
+  flex: 1 1 auto;
+}
