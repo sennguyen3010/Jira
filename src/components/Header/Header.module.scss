@@ -1,0 +1,64 @@
+@import '../../assets/sass/Helpers/mixin';
+@import '../../assets/sass/Helpers/variables';
+
+.header_layout {
+  .header_hr {
+    border-bottom: 1px solid #dee2e6;
+  }
+}
+
+.header {
+  width: 100vw;
+  justify-content: space-between;
+
+  .header_search {
+    position: relative;
+    padding: 0;
+    .header_input {
+      width: 77%;
+      padding-left: 40px;
+      background-color: #f8f9fa;
+
+      &_icon {
+        position: absolute;
+        top: 36%;
+        left: 15px;
+        transform: translateY(-36%);
+      }
+    }
+  }
+  .btn_addtask {
+    @include text($text-14, $text-regular, $text-c1-secondary);
+    padding: 0 20px;
+    height: 40px;
+    &_icon {
+      font-size: $text-18;
+      margin-right: 10px;
+    }
+  }
+
+  .header_calendar {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  .header_calendar_i {
+  }
+}
+
+.member {
+  &_h3 {
+    @include text($text-26, $text-semibold, $text-c1-primary);
+    margin-bottom: 20px;
+  }
+  &_group {
+    margin-right: 20px;
+  }
+  &_icon {
+    font-size: $text-24;
+    color: pink;
+  }
+  &_btn {
+    font-size: $text-14;
+  }
+}

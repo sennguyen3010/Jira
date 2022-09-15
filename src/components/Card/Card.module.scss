@@ -39,6 +39,9 @@
     flex: 0 1 auto;
   }
 
+  .listCard_div_btn {
+    flex: 1;
+  }
   .listCard_btn {
     flex: 0 1 40px;
     width: 100%;
@@ -63,8 +66,9 @@
     }
   }
 }
-.test {
-  // overflow-x: hidden;
-  // overflow-y: auto;
-  flex: 1 1 auto;
+
+.listCard_content {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

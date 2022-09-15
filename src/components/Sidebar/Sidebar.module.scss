@@ -1,0 +1,95 @@
+@import '../../assets/sass/Helpers/mixin';
+@import '../../assets/sass/Helpers/variables';
+
+.sidebar {
+  border-right: 1px solid #dee2e6;
+  padding: 20px 30px;
+  height: 100%;
+  // width: 20%;
+  position: fixed;
+  background-color: $bg-c1-primary;
+  z-index: 999;
+  .brand_layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // margin: 20px 0 60px 0;
+    .logo {
+      // width: 50px;
+      text-decoration: none;
+
+      .logo_img {
+        //   cursor: pointer;
+        width: 50px;
+      }
+      .brand {
+        @include text($text-26, $text-semibold, $text-c1-primary);
+      }
+    }
+    .close {
+      border: 1px solid #dee2e6;
+      border-radius: 5px;
+    }
+  }
+
+  .menu {
+    margin-top: 30px;
+    .menu_ul {
+      list-style: none;
+      padding-left: 0px;
+      .menu_li {
+        padding: 10px;
+        border-radius: 8px;
+        transition: all ease 200ms;
+        margin-bottom: 8px;
+        min-width: 200px;
+
+        &:hover {
+          padding: 10px;
+          background-color: #eaeffe;
+        }
+
+        // @include text($text-26, $text-semibold, $text-c5-secondary);
+        &:hover .menu_a {
+          color: $text-c3-primary;
+        }
+
+        .menu_a {
+          text-decoration: none;
+          @include text($text-14, $text-regular, $text-c2-primary);
+
+          .menu_span {
+            margin-left: 10px;
+          }
+          .menu_i {
+            // @include text($text-14, $text-semibold, #42526e);
+          }
+        }
+      }
+    }
+  }
+
+  .project {
+    .project_item {
+      border: none;
+
+      .project_btn {
+        padding-left: 10px;
+        @include text($text-16, $text-medium, $text-c1-primary);
+
+        &:hover {
+          // padding: 10px;
+          background-color: #eaeffe;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+
+      .project_body {
+        padding: 0px;
+      }
+    }
+  }
+}

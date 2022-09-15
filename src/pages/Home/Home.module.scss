@@ -1,158 +1,14 @@
 @import '../../assets/sass/Helpers/mixin';
 @import '../../assets/sass/Helpers/variables';
 
-.sidebar {
-  border-right: 1px solid #dee2e6;
-  padding: 20px 30px;
-  height: 100%;
-  // width: 20%;
-  position: fixed;
-  background-color: $bg-c1-primary;
-  z-index: 999;
-  .brand_layout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    // margin: 20px 0 60px 0;
-    .logo {
-      // width: 50px;
-      text-decoration: none;
-
-      .logo_img {
-        //   cursor: pointer;
-        width: 50px;
-      }
-      .brand {
-        @include text($text-26, $text-semibold, $text-c1-primary);
-      }
-    }
-    .close {
-      border: 1px solid #dee2e6;
-      border-radius: 5px;
-    }
-  }
-
-  .menu {
-    margin-top: 30px;
-    .menu_ul {
-      list-style: none;
-      padding-left: 0px;
-      .menu_li {
-        padding: 10px;
-        border-radius: 8px;
-        transition: all ease 200ms;
-        margin-bottom: 8px;
-        min-width: 200px;
-
-        &:hover {
-          padding: 10px;
-          background-color: #eaeffe;
-        }
-
-        // @include text($text-26, $text-semibold, $text-c5-secondary);
-        &:hover .menu_a {
-          color: $text-c3-primary;
-        }
-
-        .menu_a {
-          text-decoration: none;
-          @include text($text-14, $text-regular, $text-c2-primary);
-
-          .menu_span {
-            margin-left: 10px;
-          }
-          .menu_i {
-            // @include text($text-14, $text-semibold, #42526e);
-          }
-        }
-      }
-    }
-  }
-
-  .project {
-    .project_item {
-      border: none;
-
-      .project_btn {
-        padding-left: 10px;
-        @include text($text-16, $text-medium, $text-c1-primary);
-
-        &:hover {
-          // padding: 10px;
-          background-color: #eaeffe;
-        }
-
-        &:focus {
-          box-shadow: none;
-        }
-      }
-
-      .project_body {
-        padding: 0px;
-      }
-    }
-  }
-}
-
-.header_layout {
-  // border-bottom: 1px solid #dee2e6;
-  // position: fixed;
-  // background-color: $bg-c1-primary;
-  // z-index: 999;
-
-  .header_hr {
-    border-bottom: 1px solid #dee2e6;
-    // padding: 20px 0;
-    // padding: 2px;
-  }
-}
-
-.header {
-  width: 100vw;
-  justify-content: space-between;
-
-  .header_search {
-    position: relative;
-    padding: 0;
-    .header_input {
-      width: 77%;
-      // height: 50px;
-      padding-left: 40px;
-      background-color: #f8f9fa;
-
-      &_icon {
-        position: absolute;
-        top: 36%;
-        left: 15px;
-        transform: translateY(-36%);
-      }
-    }
-  }
-  .btn_addtask {
-    @include text($text-14, $text-regular, $text-c1-secondary);
-    padding: 0 20px;
-    height: 40px;
-    &_icon {
-      font-size: $text-18;
-      margin-right: 10px;
-    }
-  }
-
-  .header_calendar {
-    margin-left: 20px;
-    width: 40px;
-    height: 40px;
-  }
-  .header_calendar_i {
-  }
-}
-
 .board {
   overflow-y: hidden;
   height: 100vh;
   padding: 0;
   // width: 80%;
   padding-left: 260px;
+  display: flex;
+  flex-direction: column;
 
   // overflow: hidden;
 
@@ -180,27 +36,14 @@
     }
   }
 
-  .member {
-    &_h3 {
-      @include text($text-26, $text-semibold, $text-c1-primary);
-      margin-bottom: 20px;
-    }
-    &_group {
-      margin-right: 20px;
-    }
-    &_icon {
-      font-size: $text-24;
-      color: pink;
-    }
-    &_btn {
-      font-size: $text-14;
-    }
-  }
-
   .listCard_layout {
     background-color: #f0f1f3;
     padding: 10px;
     overflow-x: auto;
+    flex-direction: column;
+    flex: 1;
+    display: flex;
+
     // height: 100vh;
     // overflow-y: hidden;
 
