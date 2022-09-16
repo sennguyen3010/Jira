@@ -18,7 +18,8 @@ export default function Card() {
       <div className={`${styles.listCard}`}>
         <h5 className={`${styles.listCard_title}`}>To do</h5>
         <div className={styles.listCard_content}>
-          {renderCard()}
+          {/* {renderCard()}
+          {renderCard()} */}
           {renderCard()}
           {renderCard()}
         </div>

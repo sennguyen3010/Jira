@@ -13,6 +13,7 @@ import { UserLoginTemplate } from './templates/HomeTemplate/HomeTemplate';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
+import Detail from './pages/Detail/Detail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
       <Routes>
         <Route path="" element={<App />}>
           <Route index element={<Home />}></Route>
+          <Route path="/detail" element={<Detail />}></Route>
 
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
