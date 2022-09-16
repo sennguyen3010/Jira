@@ -21,6 +21,7 @@ export default function Card() {
           {renderCard()}
           {renderCard()}
           {renderCard()}
+          {renderCard()}
         </div>
         <div className={styles.listCard_div_btn}>
           <button className={`btn btn-outline-secondary ${styles.btn_addtask} ${styles.listCard_btn}`}>

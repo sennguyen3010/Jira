@@ -13,13 +13,15 @@ export default function Home() {
         <Sidebar />
 
         <div className={`${styles.board}`}>
+          <div className={styles.board_content}>
+
           <Header />
           {/* listCard */}
           <div className={`${styles.listCard_layout}`}>
             <h3 className={`${styles.member_h3} col-6`}>Name project</h3>
 
             {/* card */}
-            <div className="d-flex flex-grow-1">
+            <div className={`${styles.listCard_layout_content} d-flex`}>
               <Card />
               <Card />
               <Card />
@@ -27,6 +29,7 @@ export default function Home() {
               <Card />
               <Card />
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@
   padding: 0 5px;
 }
 .listCard {
+  overflow-y: hidden;
   display: flex;
   flex-flow: column;
   height: 100%;
@@ -40,7 +41,7 @@
   }
 
   .listCard_div_btn {
-    flex: 1;
+    margin-bottom: 50px;
   }
   .listCard_btn {
     flex: 0 1 40px;
@@ -68,7 +69,6 @@
 }
 
 .listCard_content {
-  flex: 1;
-  overflow-x: hidden;
+  // flex: 1;
   overflow-y: auto;
 }
