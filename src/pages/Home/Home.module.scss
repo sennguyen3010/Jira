@@ -1,67 +1,33 @@
 @import '../../assets/sass/Helpers/mixin';
 @import '../../assets/sass/Helpers/variables';
 
-.board {
-  overflow-y: hidden;
-  height: 100vh;
-  padding: 0;
-  // width: 80%;
-  padding-left: 260px;
-  display: flex;
+.listCard_layout {
+  background-color: #f0f1f3;
+  padding: 10px;
   flex-direction: column;
-
-  // overflow: hidden;
-
-  .content {
-    padding: 5px;
-    .content_link {
-      &_ul {
-        padding: 0;
-        display: flex;
-      }
-      &_li {
-        list-style: none;
-        // margin-left: 10px;
-      }
-      &_a {
-        @include text($text-16, $text-light, $text-c4-primary);
-        text-decoration: none;
-      }
-      &_span {
-        margin: 0 10px;
-      }
-      .project_name {
-        @include text($text-18, $text-medium, $text-c1-primary);
-      }
-    }
+  display: flex;
+  overflow-y: hidden;
+  flex: 1;
+  &_content {
+    max-height: 100%;
   }
 
-  .listCard_layout {
-    background-color: #f0f1f3;
-    padding: 10px;
-    overflow-x: auto;
-    flex-direction: column;
-    flex: 1;
-    display: flex;
+  // height: 100vh;
 
-    // height: 100vh;
-    // overflow-y: hidden;
-
-    .listCard_nav {
-      &_linkActive {
-        @include text($text-20, $text-regular, $text-c1-primary);
-        // position: relative;
-        &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 10px;
-          background-color: blue;
-          // border-bottom: 3px solid blue;
-          width: 80px;
-          height: 5px;
-          border-radius: 0 0 10px 10px;
-        }
+  .listCard_nav {
+    &_linkActive {
+      @include text($text-20, $text-regular, $text-c1-primary);
+      // position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 10px;
+        background-color: blue;
+        // border-bottom: 3px solid blue;
+        width: 80px;
+        height: 5px;
+        border-radius: 0 0 10px 10px;
       }
     }
   }

@@ -1,8 +1,29 @@
+import FormList from 'antd/lib/form/FormList';
+import { Formik, useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import * as Yup from 'yup';
+import { signinApi } from '../../redux/reducers/userReducer';
 import styles from './Login.module.scss';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().required('Please enter your email!').email('Invalid email!'),
+      password: Yup.string().required('Please enter your password!').min(3, 'Password must be at least 3 characters!'),
+    }),
+    onSubmit: (values) => {
+      // console.log(values);
+      const action = signinApi(values);
+      dispatch(action);
+    },
+  });
   return (
     <div className="container-fluid">
       <div className={`${styles.layout} row`}>
@@ -58,28 +79,33 @@ export default function Login() {
               <div className={`${styles.hr}`}></div>
 
               <div className="">
-                <form className="">
+                <form className="" onSubmit={formik.handleSubmit}>
                   <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className={`form-label ${styles.label}`}>
-                      Username or Email Address
+                      Email Address
                     </label>
                     <input
                       type="email"
                       className={`form-control ${styles.input}`}
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
+                      id="email"
+                      onChange={formik.handleChange}
                     />
+                    {formik.errors.email ? <p className="text text-danger">{formik.errors.email}</p> : ''}
                   </div>
                   <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className={`form-label ${styles.label}`}>
                       Password
                     </label>
-                    <input type="password" className={`form-control ${styles.input}`} id="exampleInputPassword1" />
+                    <input
+                      type="password"
+                      className={`form-control ${styles.input}`}
+                      id="password"
+                      onChange={formik.handleChange}
+                    />
+                    {formik.errors.password ? <p className="text text-danger">{formik.errors.password}</p> : ''}
                   </div>
 
-                  <button className={`${styles.button_submit}`} onClick={(e) => e.preventDefault()}>
-                    Sign In
-                  </button>
+                  <button className={`${styles.button_submit}`}>Sign In</button>
                 </form>
               </div>
             </div>

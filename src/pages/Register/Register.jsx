@@ -1,8 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Register.module.scss';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { signupApi } from '../../redux/reducers/userReducer';
+import Notification, { openNotification } from '../../components/Notification/Notification';
+import Loading from '../../components/Loading/Loading';
 
-export default function Login() {
+export default function Register() {
+  // const isAlert = useSelector((state) => state.userReducer);
+  // console.log(isAlert);
+
+  const dispatch = useDispatch();
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      name: '',
+      phoneNumber: '',
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().required('Please enter your email!').email('Invalid email!'),
+      password: Yup.string().required('Please enter your password!').min(3, 'Password must be at least 3 characters!'),
+      name: Yup.string().required('Please enter your name!'),
+      phoneNumber: Yup.string()
+        .required('Please enter your phone!')
+        .matches(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/, 'Phone number can not contain letters!'),
+    }),
+    onSubmit: (values) => {
+      // console.log(values);
+      const action = signupApi(values);
+      dispatch(action);
+    },
+  });
   return (
     <div className="container-fluid">
       <div className={`${styles.layout} row`}>
@@ -58,7 +89,7 @@ export default function Login() {
               <div className={`${styles.hr}`}></div>
 
               <div className="">
-                <form className="row g-4">
+                <form className="row g-4" onSubmit={formik.handleSubmit}>
                   <div className="col-6">
                     <label htmlFor="exampleInputEmail1" className={`form-label ${styles.label}`}>
                       Name
@@ -67,47 +98,63 @@ export default function Login() {
                       type="text"
                       className={`form-control ${styles.input}`}
                       id="name"
-                      aria-describedby="emailHelp"
+                      onChange={formik.handleChange}
                     />
+                    {formik.errors.name ? <p className="text text-danger">{formik.errors.name}</p> : ''}
                   </div>
                   <div className="col-6">
                     <label htmlFor="exampleInputEmail1" className={`form-label ${styles.label}`}>
-                      Username
+                      Phone number
                     </label>
                     <input
                       type="text"
                       className={`form-control ${styles.input}`}
-                      id="userName"
-                      aria-describedby="emailHelp"
-                    />
+                      id="phoneNumber"
+                      onChange={formik.handleChange}
+                    />{' '}
+                    {formik.errors.phoneNumber ? <p className="text text-danger">{formik.errors.phoneNumber}</p> : ''}
                   </div>
                   <div className="col-12">
                     <label htmlFor="exampleInputPassword1" className={`form-label ${styles.label}`}>
                       Email
                     </label>
-                    <input type="text" className={`form-control ${styles.input}`} id="email" />
+                    <input
+                      type="text"
+                      className={`form-control ${styles.input}`}
+                      id="email"
+                      onChange={formik.handleChange}
+                    />
+                    {formik.errors.email ? <p className="text text-danger">{formik.errors.email}</p> : ''}
                   </div>
                   <div className="col-12">
                     <label htmlFor="exampleInputPassword1" className={`form-label ${styles.label}`}>
                       Password
                     </label>
-                    <input type="password" className={`form-control ${styles.input}`} id="password" />
+                    <input
+                      type="password"
+                      className={`form-control ${styles.input}`}
+                      id="password"
+                      onChange={formik.handleChange}
+                    />{' '}
+                    {formik.errors.password ? <p className="text text-danger">{formik.errors.password}</p> : ''}
+                  </div>
+                  <div className="col-12">
+                    <div className={`${styles.register}`}>
+                      <span>Already a member?</span>
+                      <NavLink className={styles.sign_up} to="/login">
+                        Sign in
+                      </NavLink>
+                      {/* <Notification /> */}
+                    </div>
                   </div>
 
                   <div className="col-6">
-                    <button className={`${styles.button_submit}`} onClick={(e) => e.preventDefault()}>
+                    <button type="submit" className={`${styles.button_submit}`}>
                       Create Account
                     </button>
                   </div>
                 </form>
               </div>
-            </div>
-
-            <div className={styles.register}>
-              <span>Already a member?</span>
-              <NavLink className={styles.sign_up} to="/login">
-                Sign in
-              </NavLink>
             </div>
           </div>
         </div>

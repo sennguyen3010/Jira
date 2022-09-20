@@ -1,16 +1,23 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
 import Lordicon from '../../components/Lordicon';
+import { useState } from 'react';
+import Modal from '../Modal/Modal';
 
 export default function Sidebar() {
+  const [active, setActive] = useState(false);
+
+  const closeSidebar = () => {
+    setActive(!active);
+  };
   return (
-    <div className={`${styles.sidebar}`}>
+    <div className={`${styles.sidebar} ${active ? styles.closeSidebar : ''}`}>
       <div className={styles.brand_layout}>
         <a href="#" className={styles.logo}>
           <img className={styles.logo_img} src="./img/logo.png" alt="" />
-          <span className={styles.brand}>Jira</span>
+          {/* <span className={styles.brand}>Jira</span> */}
         </a>
-        <div className={styles.close}>
+        <div className={styles.close} onClick={closeSidebar}>
           <Lordicon
             src="https://cdn.lordicon.com/wgwcqouc.json"
             trigger="morph"
@@ -22,14 +29,14 @@ export default function Sidebar() {
       <div className={`${styles.menu}`}>
         <ul className={styles.menu_ul}>
           <li className={styles.menu_li}>
-            <a className={styles.menu_a} href="#">
-              <i className={`fa fa-home-lg ${styles.menu_i}`}></i>
-              <span className={styles.menu_span}>Dashboard</span>
+            <a data-bs-toggle="modal" data-bs-target="#modalId" className={styles.menu_a} href="#">
+              <i className="fa fa-home-lg"></i>
+              <span className={styles.menu_span}>Create project</span>
             </a>
           </li>
 
           <li className={styles.menu_li}>
-            <a className={styles.menu_a} href="#">
+            <a data-bs-toggle="modal" data-bs-target="#modalId" className={styles.menu_a} href="#">
               <i className="fa fa-home-lg"></i>
               <span className={styles.menu_span}>My tasks</span>
             </a>
@@ -96,6 +103,7 @@ export default function Sidebar() {
           </div>
         </div>
       </div>
+      <Modal />
     </div>
   );
 }

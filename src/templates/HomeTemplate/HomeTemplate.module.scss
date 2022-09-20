@@ -1,0 +1,17 @@
+@import '../../assets/sass/Helpers/mixin';
+@import '../../assets/sass/Helpers/variables';
+
+.board {
+  overflow-y: hidden;
+  height: 100vh;
+  padding: 0;
+  // width: 80%;
+  // padding-left: 260px;
+
+  // overflow: hidden;
+  &_content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../Modal/Modal';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -20,24 +21,11 @@ export default function Header() {
                     <i className={`fas fa-search ${styles.header_input_icon}`}></i>
                   </div>
 
-                  <div className={`col-3 d-flex`}>
-                    <div className={`${styles.member_group}`}>
-                      <i className={`fas fa-user-circle ${styles.member_icon}`} />
-                      <i className={`fas fa-user-circle ${styles.member_icon}`} />
-                      <i className={`fas fa-user-circle ${styles.member_icon}`} />
-                    </div>
-
-                    <button className={`btn btn-outline-secondary ${styles.member_btn}`}>
-                      <i className={`fas fa-plus-circle ${styles.btn_addtask_icon}`}></i>
-                      <span className="ms-2">Add member</span>
-                    </button>
-                  </div>
-
                   <div className="col-3 d-flex justify-content-end">
-                    <button className={`btn btn-primary ${styles.btn_addtask}`}>
+                    {/* <button className={`btn btn-primary ${styles.btn_addtask}`}>
                       <i className={`far fa-plus ${styles.btn_addtask_icon}`}></i>
                       <span>Add new task</span>
-                    </button>
+                    </button> */}
 
                     <button className={`btn btn-outline-primary ${styles.header_calendar}`}>
                       <i className={`fas fa-calendar-plus ${styles.header_calendar_i}`}></i>

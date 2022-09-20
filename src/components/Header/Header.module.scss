@@ -45,20 +45,3 @@
   .header_calendar_i {
   }
 }
-
-.member {
-  &_h3 {
-    @include text($text-26, $text-semibold, $text-c1-primary);
-    margin-bottom: 20px;
-  }
-  &_group {
-    margin-right: 20px;
-  }
-  &_icon {
-    font-size: $text-24;
-    color: pink;
-  }
-  &_btn {
-    font-size: $text-14;
-  }
-}
