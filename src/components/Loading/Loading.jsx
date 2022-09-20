@@ -1,11 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import styles from './Loading.module.scss';
 
 export default function Loading() {
-  return (
-    <div className="container">
-      <div className="d-flex align-items-center justify-content-center" style={{ width: '100vw', height: '100vh' }}>
-        <img style={{ width: '200px', height: '200px' }} src="./img/loading.svg" alt="" />
+  const { isLoading } = useSelector((state) => state.loadingReducer);
+  console.log(isLoading);
+
+  if (isLoading) {
+    return (
+      <div className={styles.loading}>
+        <img className={styles.loading_img} src="./img/loading5.gif" alt="" />
       </div>
-    </div>
-  );
+    );
+  }
+  return '';
 }

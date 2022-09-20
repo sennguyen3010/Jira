@@ -15,6 +15,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import Detail from './pages/Detail/Detail';
 import UserLoginTemplate from './templates/UserLoginTemplate/UserLoginTemplate';
+import Loading from './components/Loading/Loading';
 
 export const history = createBrowserHistory();
 

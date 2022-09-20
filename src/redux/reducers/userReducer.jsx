@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { history } from '../..';
-import Notification, { openNotification } from '../../components/Notification/Notification';
+import { openNotificationWithIcon } from '../../components/Notification/Notification';
 import { ACCESS_TOKEN, getStoreJSON, http, setStore, setStoreJSON, USER_LOGIN } from '../../util/config';
+import { DISPLAY_LOADING, HIDE_LOADING } from './loadingReducer';
 
 const initialState = {
   userSignup: {},
@@ -24,6 +25,7 @@ const userReducer = createSlice({
       let userSignin = action.payload;
       state.userSignin = userSignin;
     },
+
     // setAlert: (state, action) => {
     //   state.isAlert = true;
     //   state.error = action.payload;
@@ -41,23 +43,16 @@ export const signupApi = (userSignup) => {
     try {
       let result = await http.post('/Users/signup', userSignup);
 
-      // let result = await axios({
-      //   url: 'https://jiranew.cybersoft.edu.vn/api/Users/signup',
-      //   method: 'POST',
-      //   data: userSignup,
-      // });
-
       console.log(result);
+
       const action = setUserSignup(result.data.content);
       dispatch(action);
 
       setStoreJSON(USER_LOGIN, result.data.content);
       history.push('/');
     } catch (err) {
-      // console.log(err);
-      // console.log(err);
-      openNotification();
-      // const action = setAlert(err.response.data.message);
+      console.log(err);
+      openNotificationWithIcon('error', 'Error', 'This email address is already being used');
     }
   };
 };
@@ -65,6 +60,9 @@ export const signupApi = (userSignup) => {
 export const signinApi = (userSignin) => {
   return async (dispatch) => {
     try {
+      const showLoading = DISPLAY_LOADING();
+      dispatch(showLoading);
+
       let result = await http.post('/Users/signin', userSignin);
 
       setStore(ACCESS_TOKEN, result.data.content.accessToken);
@@ -73,10 +71,13 @@ export const signinApi = (userSignin) => {
       // console.log(result);
       const action = setUserSignin(result.data.content);
       dispatch(action);
-      history.push('/');
+      history.push('/register');
+
+      const hideLoading = HIDE_LOADING();
+      dispatch(hideLoading);
     } catch (err) {
       console.log(err);
-      alert('tai khoan mat khau k dung');
+      openNotificationWithIcon('error', 'Error', 'The username or password is incorrect');
     }
   };
 };

@@ -3,10 +3,12 @@ import { Outlet } from 'react-router-dom';
 import styles from '../HomeTemplate/HomeTemplate.module.scss';
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Loading from '../../components/Loading/Loading';
 
 export default function HomeTemplate() {
   return (
     <div className="container-fluid p-0">
+      <Loading />
       <div className="d-flex">
         <Sidebar />
 
